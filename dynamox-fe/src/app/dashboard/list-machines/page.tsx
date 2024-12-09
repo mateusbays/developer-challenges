@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from 'react-redux';
 export default function Page(): React.JSX.Element {
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
-    
+
     const { machines } = useSelector((state: RootState) => state.machinesReducer);
     const dispatch = useDispatch<AppDispatch>();
 
@@ -36,7 +36,7 @@ export default function Page(): React.JSX.Element {
         event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     ) => {
         setRowsPerPage(parseInt(event.target.value, 10));
-        setPage(0); 
+        setPage(0);
     };
 
     return (
@@ -47,12 +47,12 @@ export default function Page(): React.JSX.Element {
                 </Stack>
             </Stack>
             <MachinesTable
-                count={machines.length}  
-                rows={paginatedMachines} 
-                page={page}               
-                rowsPerPage={rowsPerPage} 
-                onPageChange={handleChangePage} 
-                onRowsPerPageChange={handleChangeRowsPerPage} 
+                count={machines.length}
+                rows={paginatedMachines}
+                page={page}
+                rowsPerPage={rowsPerPage}
+                onPageChange={handleChangePage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
             />
         </Stack>
     );

@@ -7,6 +7,7 @@ export const api = axios.create({ baseURL });
 
 api.interceptors.request.use(
   (config) => {
+    console.log('URL chamada:', config.url);
     const token = Cookies.get("authorization");
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;

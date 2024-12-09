@@ -23,6 +23,7 @@ interface ExampleAction {
 const MachinesReducer = (state = initialState, action: ExampleAction): MachinesState => {
     switch (action.type) {
         case 'GET/MACHINES_SUCCESS':
+          console.log('actiion.payload',action.payload)
             return { ...state, machines: action.payload };
         case 'GET/MACHINES_FAILURE':
             return { ...state, machines: [] };
@@ -38,6 +39,7 @@ export const getAll = () => {
         try {
             const response = await machinesService.getAll();
 
+            console.log('response',response.data);
             dispatch({ type: 'GET/MACHINES_SUCCESS', payload: response.data });
         } catch (error) {
             dispatch({ type: 'GET/MACHINES_FAILURE', payload: [] });

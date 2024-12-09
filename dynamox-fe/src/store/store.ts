@@ -7,5 +7,5 @@ const store = configureStore({
     getDefaultMiddleware({}),
 });
 
-export type AppDispatch = typeof store.dispatch; 
+export type AppDispatch = typeof store.dispatch;
 export default store;
